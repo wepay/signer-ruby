@@ -1,0 +1,10 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rubyunit (0.4.25)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rubyunit
