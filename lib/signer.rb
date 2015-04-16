@@ -95,7 +95,6 @@ module WePay
     # @option payload [required, String] token The one-time-use token.
     # @option payload [required, String] page The WePay URL to access.
     # @option payload [required, String] redirect_uri The partner URL to return to once the action is completed.
-    # @option payload [required, String] stoken The signed token that is a result of a call to the `sign()` method.
     # @return [String] The query string parameters to append to the end of a URL.
     def generate_query_string_params(payload)
       signed_token = sign(payload)

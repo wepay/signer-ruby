@@ -525,18 +525,6 @@ the signing party.</p>
           
         </li>
       
-        <li>
-          <span class="name">stoken</span>
-          <span class="type">(<tt>required</tt>, <tt>String</tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'><p>The signed token that is a result of a call to the <code>sign()</code> method.</p>
-</div>
-          
-        </li>
-      
     </ul>
   
 
@@ -564,6 +552,7 @@ the signing party.</p>
       <pre class="lines">
 
 
+99
 100
 101
 102
@@ -574,11 +563,10 @@ the signing party.</p>
 107
 108
 109
-110
-111</pre>
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generate_query_string_params'>generate_query_string_params</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_signed_token'>signed_token</span> <span class='op'>=</span> <span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
@@ -916,7 +904,7 @@ the signing party.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 16 14:29:24 2015 by
+  Generated on Thu Apr 16 14:45:18 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>
