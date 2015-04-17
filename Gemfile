@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem 'rake'
+
 group :test do
   gem 'rubyunit'
   gem "codeclimate-test-reporter", require: false
