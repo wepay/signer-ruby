@@ -62,8 +62,8 @@
       <div id="content"><div id='filecontents'><h1>WePay Signer for Ruby</h1>
 
 <p><a href="https://github.com/wepay/signer-ruby"><img src="http://img.shields.io/badge/source-wepay/signer%E2%80%93ruby-blue.svg?style=flat-square" alt="Source" /></a>
-<a href="https://packagist.org/packages/wepay/signer"><img src="https://img.shields.io/gem/v/wepay%E2%80%93signer.svg?style=flat-square" alt="Latest Stable Version" /></a>
-<a href="https://packagist.org/packages/wepay/signer"><img src="https://img.shields.io/gem/dt/wepay%E2%80%93signer.svg?style=flat-square" alt="Total Downloads" /></a>
+<a href="https://rubygems.org/gems/wepay-signer"><img src="https://img.shields.io/gem/v/wepay%E2%80%93signer.svg?style=flat-square" alt="Latest Stable Version" /></a>
+<a href="https://rubygems.org/gems/wepay-signer"><img src="https://img.shields.io/gem/dt/wepay%E2%80%93signer.svg?style=flat-square" alt="Total Downloads" /></a>
 <a href="https://github.com/wepay/signer-ruby/issues"><img src="http://img.shields.io/github/issues/wepay/signer%E2%80%93ruby.svg?style=flat-square" alt="Open Issues" /></a>
 <a href="https://travis-ci.org/wepay/signer-ruby"><img src="http://img.shields.io/travis/wepay/signer%E2%80%93ruby/master.svg?style=flat-square" alt="Build Status" /></a>
 <a href="https://coveralls.io/r/wepay/signer-ruby?branch=master"><img src="http://img.shields.io/coveralls/wepay/signer%E2%80%93ruby/master.svg?style=flat-square" alt="Coverage Status" /></a>
@@ -94,7 +94,7 @@
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client_id'>client_id</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>your_client_id</span><span class='tstring_end'>&#39;</span></span>
 <span class='id identifier rubyid_client_secret'>client_secret</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>your_client_secret</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_signer'>signer</span> <span class='op'>=</span> <span class='const'>WePay</span><span class='op'>::</span><span class='const'>Signer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_client_id'>client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_client_secret'>client_secret</span><span class='rparen'>)</span><span class='semicolon'>;</span>
+<span class='id identifier rubyid_signer'>signer</span> <span class='op'>=</span> <span class='const'>WePay</span><span class='op'>::</span><span class='const'>Signer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_client_id'>client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_client_secret'>client_secret</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_signature'>signature</span> <span class='op'>=</span> <span class='id identifier rubyid_signer'>signer</span><span class='period'>.</span><span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='lbrace'>{</span>
   <span class='symbol'>:token</span>        <span class='op'>=&gt;</span> <span class='id identifier rubyid_your_token'>your_token</span><span class='comma'>,</span>
   <span class='symbol'>:page</span>         <span class='op'>=&gt;</span> <span class='id identifier rubyid_wepay_page_to_visit'>wepay_page_to_visit</span><span class='comma'>,</span>
@@ -133,7 +133,7 @@
 
 <p>You can run the tests as follows:</p>
 
-<pre class="code bash"><code class="bash">ruby tests.rb
+<pre class="code bash"><code class="bash">rake test
 </code></pre>
 
 <h2>API Reference</h2>
@@ -172,7 +172,7 @@ updated documentation by running the following command in the root of the reposi
 </div></div>
 
       <div id="footer">
-  Generated on Thu Apr 16 22:55:31 2015 by
+  Generated on Fri Apr 17 01:24:02 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>

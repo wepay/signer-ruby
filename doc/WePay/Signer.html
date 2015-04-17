@@ -126,6 +126,95 @@ something like try to use the same public-private keypair independently of a sig
 
 
 
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#client_id-instance_method" title="#client_id (instance method)">#<strong>client_id</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute client_id.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#client_secret-instance_method" title="#client_secret (instance method)">#<strong>client_secret</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute client_secret.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#self_key-instance_method" title="#self_key (instance method)">#<strong>self_key</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute self_key.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
 
 
 
@@ -155,75 +244,6 @@ something like try to use the same public-private keypair independently of a sig
 
   
     <span class="summary_desc"><div class='inline'><p>Signs and generates the query string URL parameters to use when making a request.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_client_id-instance_method" title="#get_client_id (instance method)">#<strong>get_client_id</strong>  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Gets the client key that was set in the constructor.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_client_secret-instance_method" title="#get_client_secret (instance method)">#<strong>get_client_secret</strong>  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Gets the client secret that was set in the constructor.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_self_key-instance_method" title="#get_self_key (instance method)">#<strong>get_self_key</strong>  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Gets the self key that was set in the constructor.</p>
 </div></span>
   
 </li>
@@ -406,10 +426,6 @@ the signing party.</p>
       <pre class="lines">
 
 
-44
-45
-46
-47
 48
 49
 50
@@ -417,10 +433,14 @@ the signing party.</p>
 52
 53
 54
-55</pre>
+55
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client_id'>client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_client_secret'>client_secret</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client_id</span> <span class='op'>=</span> <span class='id identifier rubyid_client_id'>client_id</span>
@@ -429,7 +449,7 @@ the signing party.</p>
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='symbol'>:self_key</span>  <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>WePay</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
     <span class='symbol'>:hash_algo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sha512</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='semicolon'>;</span>
+  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
 
   <span class='ivar'>@self_key</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:self_key</span><span class='rbracket'>]</span>
   <span class='ivar'>@hash_algo</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:hash_algo</span><span class='rbracket'>]</span>
@@ -440,6 +460,137 @@ the signing party.</p>
 </div>
   
 </div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="client_id-instance_method">
+  
+    #<strong>client_id</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute client_id</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_client_id'>client_id</span>
+  <span class='ivar'>@client_id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="client_secret-instance_method">
+  
+    #<strong>client_secret</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute client_secret</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_client_secret'>client_secret</span>
+  <span class='ivar'>@client_secret</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="self_key-instance_method">
+  
+    #<strong>self_key</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute self_key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_self_key'>self_key</span>
+  <span class='ivar'>@self_key</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -552,204 +703,33 @@ the signing party.</p>
       <pre class="lines">
 
 
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128</pre>
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generate_query_string_params'>generate_query_string_params</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_signed_token'>signed_token</span> <span class='op'>=</span> <span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_payload'>payload</span><span class='lbracket'>[</span><span class='symbol'>:client_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@client_id</span>
   <span class='id identifier rubyid_payload'>payload</span><span class='lbracket'>[</span><span class='symbol'>:stoken</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_signed_token'>signed_token</span>
-  <span class='id identifier rubyid_qsa'>qsa</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_qsa'>qsa</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
   <span class='id identifier rubyid_payload'>payload</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>|</span>
     <span class='id identifier rubyid_qsa'>qsa</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s=%s</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='kw'>return</span> <span class='id identifier rubyid_qsa'>qsa</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_client_id-instance_method">
-  
-    #<strong>get_client_id</strong>  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Gets the client key that was set in the constructor.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The client key.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-71
-72
-73</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 71</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_client_id'>get_client_id</span>
-  <span class='ivar'>@client_id</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_client_secret-instance_method">
-  
-    #<strong>get_client_secret</strong>  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Gets the client secret that was set in the constructor.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The client secret.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-80
-81
-82</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 80</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_client_secret'>get_client_secret</span>
-  <span class='ivar'>@client_secret</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_self_key-instance_method">
-  
-    #<strong>get_self_key</strong>  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Gets the self key that was set in the constructor.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The self key.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-62
-63
-64</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 62</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_self_key'>get_self_key</span>
-  <span class='ivar'>@self_key</span>
+  <span class='id identifier rubyid_qsa'>qsa</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -862,23 +842,21 @@ the signing party.</p>
       <pre class="lines">
 
 
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106</pre>
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/signer.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_payload'>payload</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
@@ -890,9 +868,7 @@ the signing party.</p>
   <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='id identifier rubyid_create_context'>create_context</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_s2s'>s2s</span> <span class='op'>=</span> <span class='id identifier rubyid_create_string_to_sign'>create_string_to_sign</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_signing_key'>signing_key</span> <span class='op'>=</span> <span class='id identifier rubyid_get_signing_salt'>get_signing_salt</span>
-  <span class='id identifier rubyid_signature'>signature</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>HMAC</span><span class='period'>.</span><span class='id identifier rubyid_hexdigest'>hexdigest</span><span class='lparen'>(</span><span class='ivar'>@hash_algo</span><span class='comma'>,</span> <span class='id identifier rubyid_signing_key'>signing_key</span><span class='comma'>,</span> <span class='id identifier rubyid_s2s'>s2s</span><span class='rparen'>)</span>
-
-  <span class='kw'>return</span> <span class='id identifier rubyid_signature'>signature</span>
+  <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>HMAC</span><span class='period'>.</span><span class='id identifier rubyid_hexdigest'>hexdigest</span><span class='lparen'>(</span><span class='ivar'>@hash_algo</span><span class='comma'>,</span> <span class='id identifier rubyid_signing_key'>signing_key</span><span class='comma'>,</span> <span class='id identifier rubyid_s2s'>s2s</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -904,7 +880,7 @@ the signing party.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 16 22:55:31 2015 by
+  Generated on Fri Apr 17 01:24:02 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>
