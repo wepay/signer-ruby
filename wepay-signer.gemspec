@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.description = "A Modern Ruby SDK for signing WePay requests."
   s.authors     = ["WePay"]
   s.email       = 'api@wepay.com'
-  s.files       = ["lib/signer.rb", "README.md"]
+  s.files       = ["lib/signer.rb"]
   s.homepage    = 'https://github.com/wepay/signer-ruby'
+  s.license     = 'Apache-2.0'
 end

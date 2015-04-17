@@ -427,12 +427,12 @@ the signing party.</p>
   <span class='ivar'>@client_secret</span> <span class='op'>=</span> <span class='id identifier rubyid_client_secret'>client_secret</span>
 
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='label'>self_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>WePay</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='label'>hash_algo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sha512</span><span class='tstring_end'>&#39;</span></span>
+    <span class='symbol'>:self_key</span>  <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>WePay</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='symbol'>:hash_algo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sha512</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
   <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='semicolon'>;</span>
 
   <span class='ivar'>@self_key</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:self_key</span><span class='rbracket'>]</span>
-  <span class='ivar'>@hash_algo</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:client_id</span><span class='rbracket'>]</span>
+  <span class='ivar'>@hash_algo</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:hash_algo</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -570,8 +570,8 @@ the signing party.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generate_query_string_params'>generate_query_string_params</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_signed_token'>signed_token</span> <span class='op'>=</span> <span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_payload'>payload</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>client_id</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@client_id</span>
-  <span class='id identifier rubyid_payload'>payload</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stoken</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_signed_token'>signed_token</span>
+  <span class='id identifier rubyid_payload'>payload</span><span class='lbracket'>[</span><span class='symbol'>:client_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@client_id</span>
+  <span class='id identifier rubyid_payload'>payload</span><span class='lbracket'>[</span><span class='symbol'>:stoken</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_signed_token'>signed_token</span>
   <span class='id identifier rubyid_qsa'>qsa</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
   <span class='id identifier rubyid_payload'>payload</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>|</span>
@@ -882,14 +882,14 @@ the signing party.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_payload'>payload</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>client_id</span><span class='tstring_end'>&#39;</span></span>     <span class='op'>=&gt;</span> <span class='ivar'>@client_id</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>client_secret</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@client_secret</span>
+    <span class='symbol'>:client_id</span>     <span class='op'>=&gt;</span> <span class='ivar'>@client_id</span><span class='comma'>,</span>
+    <span class='symbol'>:client_secret</span> <span class='op'>=&gt;</span> <span class='ivar'>@client_secret</span><span class='comma'>,</span>
   <span class='rbrace'>}</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_scope'>scope</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_create_scope'>create_scope</span>
-  <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_create_context'>create_context</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_s2s'>s2s</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_create_string_to_sign'>create_string_to_sign</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_signing_key'>signing_key</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_signing_salt'>get_signing_salt</span>
+  <span class='id identifier rubyid_scope'>scope</span> <span class='op'>=</span> <span class='id identifier rubyid_create_scope'>create_scope</span>
+  <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='id identifier rubyid_create_context'>create_context</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_s2s'>s2s</span> <span class='op'>=</span> <span class='id identifier rubyid_create_string_to_sign'>create_string_to_sign</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_signing_key'>signing_key</span> <span class='op'>=</span> <span class='id identifier rubyid_get_signing_salt'>get_signing_salt</span>
   <span class='id identifier rubyid_signature'>signature</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>HMAC</span><span class='period'>.</span><span class='id identifier rubyid_hexdigest'>hexdigest</span><span class='lparen'>(</span><span class='ivar'>@hash_algo</span><span class='comma'>,</span> <span class='id identifier rubyid_signing_key'>signing_key</span><span class='comma'>,</span> <span class='id identifier rubyid_s2s'>s2s</span><span class='rparen'>)</span>
 
   <span class='kw'>return</span> <span class='id identifier rubyid_signature'>signature</span>
@@ -904,7 +904,7 @@ the signing party.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 16 15:11:26 2015 by
+  Generated on Thu Apr 16 22:55:31 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>

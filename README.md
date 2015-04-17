@@ -1,8 +1,8 @@
 # WePay Signer for Ruby
 
 [![Source](http://img.shields.io/badge/source-wepay/signer–ruby-blue.svg?style=flat-square)](https://github.com/wepay/signer-ruby)
-[![Latest Stable Version](https://img.shields.io/gem/v/wepay–signer.svg?style=flat-square)](https://packagist.org/packages/wepay/signer)
-[![Total Downloads](https://img.shields.io/gem/dt/wepay–signer.svg?style=flat-square)](https://packagist.org/packages/wepay/signer)
+[![Latest Stable Version](https://img.shields.io/gem/v/wepay–signer.svg?style=flat-square)](https://rubygems.org/gems/wepay-signer)
+[![Total Downloads](https://img.shields.io/gem/dt/wepay–signer.svg?style=flat-square)](https://rubygems.org/gems/wepay-signer)
 [![Open Issues](http://img.shields.io/github/issues/wepay/signer–ruby.svg?style=flat-square)](https://github.com/wepay/signer-ruby/issues)
 [![Build Status](http://img.shields.io/travis/wepay/signer–ruby/master.svg?style=flat-square)](https://travis-ci.org/wepay/signer-ruby)
 [![Coverage Status](http://img.shields.io/coveralls/wepay/signer–ruby/master.svg?style=flat-square)](https://coveralls.io/r/wepay/signer-ruby?branch=master)
@@ -104,7 +104,7 @@ Here's the process for contributing:
 
 * Copyright (c) 2015 [WePay](http://wepay.com)
 
-See also the list of [contributors](/wepay/signer-ruby/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/wepay/signer-ruby/graphs/contributors) who participated in this project.
 
 Licensed for use under the terms of the [Apache 2.0] license.
 
