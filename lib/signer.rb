@@ -77,7 +77,7 @@ module WePay
       context = create_context(payload)
       s2s = create_string_to_sign(scope, context)
       signing_key = get_signing_salt
-      signature = OpenSSL::HMAC.hexdigest(@hash_algo, signing_key, s2s)
+      OpenSSL::HMAC.hexdigest(@hash_algo, signing_key, s2s)
     end
 
     ##
