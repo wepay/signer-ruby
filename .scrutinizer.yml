@@ -13,8 +13,6 @@ checks:
     style_trailing_blank_lines:
       enforced_style: final_newline
     style_tab: true
-    style_string_literals:
-      enforced_style: double_quotes
     style_space_before_semicolon: true
     style_space_before_modifier_keyword: true
     style_space_before_comment: true
