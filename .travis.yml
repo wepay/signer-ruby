@@ -19,11 +19,11 @@ sudo: false
 bundler_args: --without docs
 
 before_script:
-  - CODECLIMATE_REPO_TOKEN=be5cbb5c1c8e3183420eab397beb625bf667461624ff4ec511a0bd4c71b2b4f8 bundle exec rake
+  - CODECLIMATE_REPO_TOKEN=be5cbb5c1c8e3183420eab397beb625bf667461624ff4ec511a0bd4c71b2b4f8
 
 script:
   - 'bundle install --without docs'
-  - 'ruby tests.rb'
+  - 'bundle exec rake'
 
 # after_script:
 
