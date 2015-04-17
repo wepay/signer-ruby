@@ -69,8 +69,6 @@ checks:
     style_global_vars: true
     style_file_name: true
     style_end_of_line: true
-    style_encoding:
-      enforced_style: always
     style_empty_literal: true
     style_empty_lines_around_body: true
     style_empty_lines: true
