@@ -21,7 +21,6 @@ Based on a simplified version of the AWS Signature v4.
 
 This project uses [Semantic Versioning](http://semver.org) for managing backwards-compatibility.
 
-* [Documentation](http://wepay-signer-ruby.readthedocs.org)
 * [API Reference](https://wepay.github.io/signer-ruby/)
 
 ## Examples
