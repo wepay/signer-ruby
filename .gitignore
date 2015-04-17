@@ -1,4 +1,5 @@
 /.yardoc
 /*.gem
+/coverage
 /Gemfile.lock
 /vendor
