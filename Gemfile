@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 group :test do
   gem 'rubyunit'
-  gem 'simplecov', require: false
+  gem "codeclimate-test-reporter", require: false
   gem 'coveralls', require: false
 end
 

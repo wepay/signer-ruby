@@ -74,7 +74,7 @@ Firstly, run `bundle install` to download and install the dependencies.
 You can run the tests as follows:
 
 ```bash
-ruby tests.rb
+ruby test_helper.rb
 ```
 
 
