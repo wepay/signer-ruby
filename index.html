@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Signer-ruby by wepay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Signer-ruby</h1>
+      <h2 class="project-tagline">A Modern Ruby SDK for signing WePay requests.</h2>
+      <a href="https://github.com/wepay/signer-ruby" class="btn">View on GitHub</a>
+      <a href="https://github.com/wepay/signer-ruby/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/wepay/signer-ruby/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="wepay-signer-for-ruby" class="anchor" href="#wepay-signer-for-ruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>WePay Signer for Ruby</h1>
+
+<p><a href="https://github.com/wepay/signer-ruby"><img src="http://img.shields.io/badge/source-wepay/signer%E2%80%93ruby-blue.svg?style=flat-square" alt="Source"></a>
+<a href="https://rubygems.org/gems/wepay-signer"><img src="https://img.shields.io/gem/v/wepay%E2%80%93signer.svg?style=flat-square" alt="Latest Stable Version"></a>
+<a href="https://rubygems.org/gems/wepay-signer"><img src="https://img.shields.io/gem/dt/wepay%E2%80%93signer.svg?style=flat-square" alt="Total Downloads"></a>
+<a href="https://github.com/wepay/signer-ruby/issues"><img src="http://img.shields.io/github/issues/wepay/signer%E2%80%93ruby.svg?style=flat-square" alt="Open Issues"></a>
+<a href="https://travis-ci.org/wepay/signer-ruby"><img src="http://img.shields.io/travis/wepay/signer%E2%80%93ruby/master.svg?style=flat-square" alt="Build Status"></a>
+<a href="https://coveralls.io/r/wepay/signer-ruby?branch=master"><img src="http://img.shields.io/coveralls/wepay/signer%E2%80%93ruby/master.svg?style=flat-square" alt="Coverage Status"></a>
+<a href="https://codeclimate.com/github/wepay/signer-ruby"><img src="http://img.shields.io/codeclimate/github/wepay/signer%E2%80%93ruby.svg?style=flat-square" alt="Code Climate"></a>
+<a href="https://scrutinizer-ci.com/g/wepay/signer-ruby"><img src="http://img.shields.io/scrutinizer/g/wepay/signer%E2%80%93ruby.svg?style=flat-square" alt="Code Quality"></a>
+<a href="https://github.com/biplap-sarkar"><img src="http://img.shields.io/badge/author-@biplap%E2%80%93sarkar-blue.svg?style=flat-square" alt="Author"></a>
+<a href="https://github.com/skyzyx"><img src="http://img.shields.io/badge/author-@skyzyx-blue.svg?style=flat-square" alt="Author"></a></p>
+
+<p>The <strong>Signer</strong> class is designed for those who are signing data on behalf of a public-private keypair.</p>
+
+<p>In principle, the "client party" has public key (i.e., <code>client_id</code>) and a matching private key (i.e., <code>client_secret</code>) that can be verified by both the signer and the client (but nobody else as we don't want to make forgeries possible).</p>
+
+<p>The "signing party" has a simple identifier which acts as an additional piece of entropy in the algorithm, and can help differentiate between multiple signing parties if the client party does something like try to use the same public-private keypair independently of a signing party (as is common with GPG signing).</p>
+
+<p>Based on a simplified version of the AWS Signature v4.</p>
+
+<p>This project uses <a href="http://semver.org">Semantic Versioning</a> for managing backwards-compatibility.</p>
+
+<ul>
+<li><a href="https://wepay.github.io/signer-ruby/">API Reference</a></li>
+</ul>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>(Using <a href="https://gist.github.com/js-coder/3581285">word_wrap()</a> for line wrapping.)</p>
+
+<div class="highlight highlight-ruby"><pre>client_id <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>your_client_id<span class="pl-pds">'</span></span>
+client_secret <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>your_client_secret<span class="pl-pds">'</span></span>
+
+signer <span class="pl-k">=</span> <span class="pl-c1">WePay</span>::<span class="pl-c1">Signer</span>.<span class="pl-k">new</span>(client_id, client_secret)
+signature <span class="pl-k">=</span> signer.sign({
+  <span class="pl-c1">:token</span>        =&gt; your_token,
+  <span class="pl-c1">:page</span>         =&gt; wepay_page_to_visit,
+  <span class="pl-c1">:redirect_uri</span> =&gt; partner_page_to_return_to,
+})
+
+puts signature.word_wrap(<span class="pl-c1">64</span>)
+<span class="pl-c">#=&gt; dfbffab5b6f7156402da8147886bba3eba67bd5baf2e780ba9d39e8437db7c47</span>
+<span class="pl-c">#=&gt; 35e9a0b834aa21ac76f98da8c52a2a0cd1b0192d0f0df5c98e3848b1b2e1a037</span>
+
+querystring <span class="pl-k">=</span> signer.generate_query_string_params({
+  <span class="pl-c1">:token</span>        =&gt; your_token,
+  <span class="pl-c1">:page</span>         =&gt; wepay_page_to_visit,
+  <span class="pl-c1">:redirect_uri</span> =&gt; partner_page_to_return_to,
+})
+
+<span class="pl-c">#=&gt; client_id=your_client_id&amp;</span>
+<span class="pl-c">#=&gt; page=https://wepay.com/account/12345&amp;</span>
+<span class="pl-c">#=&gt; redirect_uri=https://partnersite.com/home&amp;</span>
+<span class="pl-c">#=&gt; token=dfbffab5b6f7156402da8147886bba3eba67bd5baf2e780ba9d39e8437db7c47...</span></pre></div>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight highlight-ruby"><pre><span class="pl-k">gem</span> <span class="pl-s"><span class="pl-pds">'</span>wepay-signer<span class="pl-pds">'</span></span></pre></div>
+
+<p>And include it in your scripts:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">'</span>wepay-signer<span class="pl-pds">'</span></span></pre></div>
+
+<h2>
+<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing</h2>
+
+<p>Firstly, run <code>bundle install</code> to download and install the dependencies.</p>
+
+<p>You can run the tests as follows:</p>
+
+<div class="highlight highlight-bash"><pre>rake <span class="pl-c1">test</span></pre></div>
+
+<h2>
+<a id="api-reference" class="anchor" href="#api-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Reference</h2>
+
+<p>The API Reference is generated by a tool called <a href="http://yarddoc.org">YARD</a>. Once it's installed, you can generate
+updated documentation by running the following command in the root of the repository.</p>
+
+<div class="highlight highlight-bash"><pre>yard</pre></div>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Here's the process for contributing:</p>
+
+<ol>
+<li>Fork Signer to your GitHub account.</li>
+<li>Clone your GitHub copy of the repository into your local workspace.</li>
+<li>Write code, fix bugs, and add tests with 100% code coverage.</li>
+<li>Commit your changes to your local workspace and push them up to your GitHub copy.</li>
+<li>You submit a GitHub pull request with a description of what the change is.</li>
+<li>The contribution is reviewed. Maybe there will be some banter back-and-forth in the comments.</li>
+<li>If all goes well, your pull request will be accepted and your changes are merged in.</li>
+</ol>
+
+<h2>
+<a id="authors-copyright--licensing" class="anchor" href="#authors-copyright--licensing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors, Copyright &amp; Licensing</h2>
+
+<ul>
+<li>Copyright (c) 2015 <a href="http://wepay.com">WePay</a>
+</li>
+</ul>
+
+<p>See also the list of <a href="https://github.com/wepay/signer-ruby/graphs/contributors">contributors</a> who participated in this project.</p>
+
+<p>Licensed for use under the terms of the <a href="http://opensource.org/licenses/Apache-2.0">Apache 2.0</a> license.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/wepay/signer-ruby">Signer-ruby</a> is maintained by <a href="https://github.com/wepay">wepay</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
