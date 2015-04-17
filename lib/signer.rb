@@ -78,8 +78,6 @@ module WePay
       s2s = create_string_to_sign(scope, context)
       signing_key = get_signing_salt
       signature = OpenSSL::HMAC.hexdigest(@hash_algo, signing_key, s2s)
-
-      return signature
     end
 
     ##
@@ -95,13 +93,13 @@ module WePay
       signed_token = sign(payload)
       payload[:client_id] = @client_id
       payload[:stoken] = signed_token
-      qsa = Array.new
+      qsa = []
 
       payload.keys.sort.each do | key |
         qsa.push sprintf("%s=%s", key, payload[key])
       end
 
-      return qsa.join("&")
+      qsa.join("&")
     end
 
 private
@@ -116,7 +114,7 @@ private
     def create_string_to_sign(scope, context)
       scope_hash = OpenSSL::Digest.new(@hash_algo, scope)
       context_hash = OpenSSL::Digest.new(@hash_algo, context)
-      s2s = sprintf "SIGNER-HMAC-%s\n%s\n%s\n%s\n%s", @hash_algo.upcase, @self_key, @client_id, scope_hash, context_hash
+      sprintf "SIGNER-HMAC-%s\n%s\n%s\n%s\n%s", @hash_algo.upcase, @self_key, @client_id, scope_hash, context_hash
     end
 
     ##
@@ -138,8 +136,8 @@ private
 
       canonical_payload.sort!
 
-      signed_headers_string = payload.keys.sort_by {|s| s.to_s}.join(";")
-      canonical_context = canonical_payload.join("") + "\n" + signed_headers_string
+      signed_headers_string = payload.keys.sort_by { |s| s.to_s }.join(";")
+      canonical_payload.join("") + "\n" + signed_headers_string
     end
 
     ##
@@ -150,7 +148,7 @@ private
     def get_signing_salt
       self_key_sign = OpenSSL::HMAC.digest(@hash_algo, @client_secret, @self_key)
       client_id_sign = OpenSSL::HMAC.digest(@hash_algo, self_key_sign, @client_id)
-      salt = OpenSSL::HMAC.digest(@hash_algo, client_id_sign, 'signer')
+      OpenSSL::HMAC.digest(@hash_algo, client_id_sign, 'signer')
     end
 
     ##
@@ -159,7 +157,7 @@ private
     # @return [String] The string which represents the scope in which the signature is valid.
     ##
     def create_scope
-      scope = sprintf "%s/%s/signer", @self_key, @client_id
+      sprintf "%s/%s/signer", @self_key, @client_id
     end
 
   end
