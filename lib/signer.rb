@@ -136,7 +136,7 @@ private
 
       canonical_payload.sort!
 
-      signed_headers_string = payload.keys.sort_by { |s| s.to_s }.join(";")
+      signed_headers_string = payload.keys.sort_by {|s| s.to_s }.join(";")
       canonical_payload.join("") + "\n" + signed_headers_string
     end
 
