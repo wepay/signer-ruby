@@ -6,6 +6,7 @@ group :test do
   gem 'rubyunit'
   gem "codeclimate-test-reporter", require: false
   gem 'coveralls', require: false
+  gem 'scrutinizer-ocular', require: false
 end
 
 group :docs do
