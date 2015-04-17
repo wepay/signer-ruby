@@ -10,8 +10,6 @@ rvm:
   - rbx-head
   - mruby-head
   - ironruby-head
-  - goruby
-  - topaz
 
 matrix:
   fast_finish: true
@@ -21,8 +19,6 @@ matrix:
     - rvm: rbx-head
     - rvm: mruby-head
     - rvm: ironruby-head
-    - rvm: goruby
-    - rvm: topaz
 
 sudo: false
 
