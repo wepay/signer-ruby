@@ -123,6 +123,9 @@ checks:
             allow_safe_assignment: true
         lint_ambiguous_regexp_literal: true
         lint_ambiguous_operator: true
+        style_line_length:
+            max: '120'
+            allow_uri: true
 
 build:
     tests:
