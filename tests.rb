@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 require_relative 'Bootstrap'
-
+require 'coveralls'
 require 'RubyUnit'
 
-require_relative 'tests/signer_test.rb'
+Coveralls.wear!
 
+require_relative 'tests/signer_test.rb'
