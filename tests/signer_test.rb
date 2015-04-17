@@ -55,7 +55,7 @@ class SignerTest < RubyUnit::TestCase
       :page         => DEFAULT_PAGE,
       :redirect_uri => DEFAULT_REDIRECT_URI,
       :token        => DEFAULT_TOKEN,
-    });
+    })
 
     assertEqual sprintf(DEFAULT_QS, DEFAULT_CLIENT_ID, DEFAULT_PAGE, DEFAULT_REDIRECT_URI, DEFAULT_SIGNATURE, DEFAULT_TOKEN), querystring
   end

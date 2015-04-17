@@ -66,7 +66,7 @@ checks:
         style_file_name: true
         style_end_of_line: true
         style_empty_literal: true
-        style_empty_lines_around_body: true
+        style_empty_lines_around_body: false
         style_empty_lines: true
         style_empty_line_between_defs:
             allow_adjacent_one_line_defs: true
@@ -90,7 +90,7 @@ checks:
             enforced_colon_style: key
             enforced_last_argument_hash_style: always_inspect
         style_align_array: true
-        style_accessor_method_name: true
+        style_accessor_method_name: false
         rails_output: true
         rails_default_scope: true
         lint_useless_setter_call: true
