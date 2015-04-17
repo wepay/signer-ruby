@@ -29,6 +29,10 @@ module WePay
   ##
   class Signer
 
+    attr_reader :self_key
+    attr_reader :client_id
+    attr_reader :client_secret
+
     ##
     # Constructs a new instance of this class.
     #
@@ -48,37 +52,10 @@ module WePay
       options = {
         :self_key  => 'WePay',
         :hash_algo => 'sha512',
-      }.merge(options);
+      }.merge(options)
 
       @self_key = options[:self_key]
       @hash_algo = options[:hash_algo]
-    end
-
-    ##
-    # Gets the self key that was set in the constructor.
-    #
-    # @return [String] The self key.
-    ##
-    def get_self_key
-      @self_key
-    end
-
-    ##
-    # Gets the client key that was set in the constructor.
-    #
-    # @return [String] The client key.
-    ##
-    def get_client_id
-      @client_id
-    end
-
-    ##
-    # Gets the client secret that was set in the constructor.
-    #
-    # @return [String] The client secret.
-    ##
-    def get_client_secret
-      @client_secret
     end
 
     ##
