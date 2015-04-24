@@ -1,13 +1,13 @@
 # WePay Signer for Ruby
 
 [![Source](http://img.shields.io/badge/source-wepay/signer–ruby-blue.svg?style=flat-square)](https://github.com/wepay/signer-ruby)
-[![Latest Stable Version](https://img.shields.io/gem/v/wepay–signer.svg?style=flat-square)](https://rubygems.org/gems/wepay-signer)
-[![Total Downloads](https://img.shields.io/gem/dt/wepay–signer.svg?style=flat-square)](https://rubygems.org/gems/wepay-signer)
-[![Open Issues](http://img.shields.io/github/issues/wepay/signer–ruby.svg?style=flat-square)](https://github.com/wepay/signer-ruby/issues)
-[![Build Status](http://img.shields.io/travis/wepay/signer–ruby/master.svg?style=flat-square)](https://travis-ci.org/wepay/signer-ruby)
-[![Coverage Status](http://img.shields.io/coveralls/wepay/signer–ruby/master.svg?style=flat-square)](https://coveralls.io/r/wepay/signer-ruby?branch=master)
-[![Code Climate](http://img.shields.io/codeclimate/github/wepay/signer–ruby.svg?style=flat-square)](https://codeclimate.com/github/wepay/signer-ruby)
-[![Code Quality](http://img.shields.io/scrutinizer/g/wepay/signer–ruby.svg?style=flat-square)](https://scrutinizer-ci.com/g/wepay/signer-ruby)
+[![Latest Stable Version](https://img.shields.io/gem/v/wepay-signer.svg?style=flat-square)](https://rubygems.org/gems/wepay-signer)
+[![Total Downloads](https://img.shields.io/gem/dt/wepay-signer.svg?style=flat-square)](https://rubygems.org/gems/wepay-signer)
+[![Open Issues](http://img.shields.io/github/issues/wepay/signer-ruby.svg?style=flat-square)](https://github.com/wepay/signer-ruby/issues)
+[![Build Status](http://img.shields.io/travis/wepay/signer-ruby/master.svg?style=flat-square)](https://travis-ci.org/wepay/signer-ruby)
+[![Coverage Status](http://img.shields.io/coveralls/wepay/signer-ruby/master.svg?style=flat-square)](https://coveralls.io/r/wepay/signer-ruby?branch=master)
+[![Code Climate](http://img.shields.io/codeclimate/github/wepay/signer-ruby.svg?style=flat-square)](https://codeclimate.com/github/wepay/signer-ruby)
+[![Code Quality](http://img.shields.io/scrutinizer/g/wepay/signer-ruby.svg?style=flat-square)](https://scrutinizer-ci.com/g/wepay/signer-ruby)
 [![Author](http://img.shields.io/badge/author-@biplap–sarkar-blue.svg?style=flat-square)](https://github.com/biplap-sarkar)
 [![Author](http://img.shields.io/badge/author-@skyzyx-blue.svg?style=flat-square)](https://github.com/skyzyx)
 
