@@ -2,13 +2,13 @@
 ```
 -----BEGIN PGP SIGNATURE-----
 
-iQEcBAABCgAGBQJVOdZfAAoJEP9Zal5eC0aCk4QIAKPGWUkyyEz+m1aTx3t3LHsg
-Bm4WNlWwech0Q4v9lIT6gNjw0Hf/5zidCdLHfVmFPc5JMrTgcQzMyLouryWdIZJj
-K/t3oBxP4I2CluumbqnVsNqnqABVB1waXtBoRlW0gWk+odG7D41R2gd0lwvXXYUu
-MxlbDpfs8moJZcniODZjBlRgj0RE+wLZ67w7J4SH/fc5r/VroghhgW/9vpe/9iG1
-jqjUEHVK9e7BlxhlJPHCGgPtPTc2SP9iLrC5rFDjr18d+1lf2KlMaY3nlA1i5tls
-RcpZAc3ygn1g++9brScDg8SvOR1wIQ0U2tTSCt8iLbyXmLumvlbfJSoNOhvBgAk=
-=PL1O
+iQEcBAABCgAGBQJVOdflAAoJEP9Zal5eC0aCCcIH/0XyxyRqWBQEEfYAfV5KqG5w
+GrMjeJkb6y1XtqFGNDTsC8CM7hjJuk9G/oCdh0U4+wBNgylQR/pc0lOXZ4c6PEt+
+35TX6t2D0ubV7tioPKc85KVCRxgaF96PMUW+F7IvMJtBH05/RQLjXtm3aqGn89Sn
+EPjkzzJAWfl/2ISCuvO/N0qvlrx38fDx9mNqScqYageEB0s+i9fFH0QT2ie8LwEa
+tScd1goL7JT/vzSeqlWfAGFoKeIbesJuE9qhC6HdqLYsCEGlqXbMKb8tJf/SbB8E
+fE7tOdTDS7RVCmnnTbAlnL9JB+qtlGEpe+9w0TPDmHugXcDwaGHwbCPNEgDtj8w=
+=Zl43
 -----END PGP SIGNATURE-----
 
 ```
@@ -53,8 +53,8 @@ size   exec  file                          contents
                lib/                                                                                        
 6009             wepay-signer.rb           62b3e6887fd1895195ffd8be210f0c347c4475a567e0cfd786739902ac58bcf2
 9202           LICENSE.md                  d86082393c045c6ee8fcef26a1680e31c72b2afb07f687ac337325747f341585
-1715           Makefile                    858fe4f4d62357e75268228c4e94a2ca2622ab153aca0b2789f89b9f3d774017
-5597           README.md                   b9f8c0c2cf45624fa91a4dc3df02315e1616735830f8399ea2a39f7b0f139fe0
+1846           Makefile                    dbcbbf0056cdd37d4b7456cdb1f753f976d7f36d4ed9287f1e377becfe441f56
+5884           README.md                   cf6fb72d374b33ac4d5a2efe42822a3c76d266766307a23c524c31df2514b6f3
 272    x       test_helper.rb              bf6a93b327807078d75472c1205548b20df0192e7de967bff83b8001b272967e
                tests/                                                                                      
 1807             signer_test.rb            af892157f7ac4ac02aaf4e9d8c23b2a17ebe26e91fc04782e27046e75d10783e
