@@ -46,16 +46,16 @@ module WePay
     # @option options [String] hash_algo (sha512) The hash algorithm to use for signing.
     ##
     def initialize(client_id, client_secret, options = {})
-      @client_id = client_id
-      @client_secret = client_secret
+      @client_id = client_id.to_s
+      @client_secret = client_secret.to_s
 
       options = {
         :self_key  => 'WePay',
         :hash_algo => 'sha512',
       }.merge(options)
 
-      @self_key = options[:self_key]
-      @hash_algo = options[:hash_algo]
+      @self_key = options[:self_key].to_s
+      @hash_algo = options[:hash_algo].to_s
     end
 
     ##

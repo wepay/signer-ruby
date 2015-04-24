@@ -13,7 +13,7 @@ require_relative '../lib/wepay-signer'
 class SignerTest < RubyUnit::TestCase
 
   # Test data
-  DEFAULT_CLIENT_ID     = '12173158495'
+  DEFAULT_CLIENT_ID     = 12173158495
   DEFAULT_CLIENT_SECRET = '1594122c5c36f438f8ba'
   DEFAULT_SIGNATURE     = 'c2de34c15cd76f797cf80781747da3874639a827a4cb79dcd862cc17b35cf2e2c721ea7d49ab9f60590d637ae0f51fd4ed8ddb551b922e0cd7e35a13b86de360'
   DEFAULT_PAGE          = 'https://wepay.com/account/12345'
@@ -33,11 +33,11 @@ class SignerTest < RubyUnit::TestCase
   end
 
   def get_client_key_Test
-    assertEqual DEFAULT_CLIENT_ID, @signer.client_id
+    assertEqual DEFAULT_CLIENT_ID.to_s, @signer.client_id
   end
 
   def get_client_secret_Test
-    assertEqual DEFAULT_CLIENT_SECRET, @signer.client_secret
+    assertEqual DEFAULT_CLIENT_SECRET.to_s, @signer.client_secret
   end
 
   def sign_Test
