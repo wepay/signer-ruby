@@ -40,6 +40,10 @@ class SignerTest < RubyUnit::TestCase
     assertEqual DEFAULT_CLIENT_SECRET.to_s, @signer.client_secret
   end
 
+  def get_hash_algo_Test
+    assertEqual 'sha512', @signer.hash_algo
+  end
+
   def sign_Test
     signature = @signer.sign({
       :page         => DEFAULT_PAGE,

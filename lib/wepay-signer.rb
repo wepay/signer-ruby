@@ -32,6 +32,7 @@ module WePay
     attr_reader :self_key
     attr_reader :client_id
     attr_reader :client_secret
+    attr_reader :hash_algo
 
     ##
     # Constructs a new instance of this class.
