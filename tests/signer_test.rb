@@ -5,7 +5,7 @@
 ##
 
 require 'RubyUnit'
-require_relative '../lib/signer'
+require_relative '../lib/wepay-signer'
 
 ##
 # Test Cases for the WePay::Signer module.
@@ -29,15 +29,15 @@ class SignerTest < RubyUnit::TestCase
   end
 
   def get_self_key_Test
-    assertEqual 'WePay', @signer.get_self_key
+    assertEqual 'WePay', @signer.self_key
   end
 
   def get_client_key_Test
-    assertEqual DEFAULT_CLIENT_ID, @signer.get_client_id
+    assertEqual DEFAULT_CLIENT_ID, @signer.client_id
   end
 
   def get_client_secret_Test
-    assertEqual DEFAULT_CLIENT_SECRET, @signer.get_client_secret
+    assertEqual DEFAULT_CLIENT_SECRET, @signer.client_secret
   end
 
   def sign_Test
