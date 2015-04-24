@@ -100,6 +100,40 @@ Here's the process for contributing:
 7. If all goes well, your pull request will be accepted and your changes are merged in.
 
 
+## Deploying
+The `Makefile` (yes, `Makefile`) has a series of commands to simplify the development and deployment process.
+
+### `pushdocs`
+You will need to have write-access to the `wepay/signer-ruby` repository on GitHub. You should have already set up:
+
+* Your SSH key with your GitHub account.
+* Had your GitHub user given write-access to the repository.
+
+Then you can run:
+
+```bash
+make pushdocs
+```
+
+You can view your changes at <https://wepay.github.io/signer-ruby/>.
+
+### `pushgem`
+You will need to have pulled-down the proper gem credentials first. When prompted, enter your Rubygems.org password.
+
+```bash
+curl -u qrush https://rubygems.org/api/v1/api_key.yaml > \
+~/.gem/credentials; chmod 0600 ~/.gem/credentials
+```
+
+Then you can run:
+
+```bash
+make pushgem
+```
+
+You can view your changes at <https://rubygems.org/gems/wepay-signer>.
+
+
 ## Authors, Copyright & Licensing
 
 * Copyright (c) 2015 [WePay](http://wepay.com)
