@@ -159,6 +159,70 @@ updated documentation by running the following command in the root of the reposi
 </ol>
 
 
+<h2>Deploying</h2>
+
+<p>The <code>Makefile</code> (yes, <code>Makefile</code>) has a series of commands to simplify the development and deployment process.</p>
+
+<h3><code>make</code></h3>
+
+<p>Running <code>make</code> by itself will show you a list of available sub-commands.</p>
+
+<pre class="code bash"><code class="bash">$ make
+all
+docs
+gem
+install
+pushdocs
+pushgem
+tag
+test
+version
+</code></pre>
+
+<h3><code>make pushdocs</code></h3>
+
+<p>You will need to have write-access to the <code>wepay/signer-ruby</code> repository on GitHub. You should have already set up:</p>
+
+<ul>
+<li>Your SSH key with your GitHub account.</li>
+<li>Had your GitHub user given write-access to the repository.</li>
+</ul>
+
+
+<p>Then you can run:</p>
+
+<pre class="code bash"><code class="bash">make pushdocs
+</code></pre>
+
+<p>You can view your changes at <a href="https://wepay.github.io/signer-ruby/">https://wepay.github.io/signer-ruby/</a>.</p>
+
+<h3><code>make pushgem</code></h3>
+
+<p>You will need to have pulled-down the proper gem credentials first. When prompted, enter your Rubygems.org password.</p>
+
+<pre class="code bash"><code class="bash">curl -u qrush https://rubygems.org/api/v1/api_key.yaml &gt; \
+~/.gem/credentials; chmod 0600 ~/.gem/credentials
+</code></pre>
+
+<p>Then you can run:</p>
+
+<pre class="code bash"><code class="bash">make pushgem
+</code></pre>
+
+<p>You can view your changes at <a href="https://rubygems.org/gems/wepay-signer">https://rubygems.org/gems/wepay-signer</a>.</p>
+
+<h3><code>make tag</code></h3>
+
+<p>You will need to have a <a href="https://keybase.io">Keybase</a> account first, including setting-up the
+<a href="https://keybase.io/docs/command_line/prerequisites"><code>keybase</code> CLI tool</a>.</p>
+
+<p>Then you can run:</p>
+
+<pre class="code bash"><code class="bash">make tag
+</code></pre>
+
+<p>You can view your changes in the <code>SIGNED.md</code> file.</p>
+
 <h2>Authors, Copyright &amp; Licensing</h2>
 
 <ul>
@@ -172,7 +236,7 @@ updated documentation by running the following command in the root of the reposi
 </div></div>
 
       <div id="footer">
-  Generated on Thu Apr 23 21:42:22 2015 by
+  Generated on Thu Apr 23 22:44:35 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>
