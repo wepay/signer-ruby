@@ -88,18 +88,6 @@ make docs
 ```
 
 
-## Contributing
-Here's the process for contributing:
-
-1. Fork Signer to your GitHub account.
-2. Clone your GitHub copy of the repository into your local workspace.
-3. Write code, fix bugs, and add tests with 100% code coverage.
-4. Commit your changes to your local workspace and push them up to your GitHub copy.
-5. You submit a GitHub pull request with a description of what the change is.
-6. The contribution is reviewed. Maybe there will be some banter back-and-forth in the comments.
-7. If all goes well, your pull request will be accepted and your changes are merged in.
-
-
 ## Deploying
 The `Makefile` (yes, `Makefile`) has a series of commands to simplify the development and deployment process.
 
@@ -135,7 +123,8 @@ make pushdocs
 You can view your changes at <https://wepay.github.io/signer-ruby/>.
 
 ### `make pushgem`
-You will need to have pulled-down the proper gem credentials first. When prompted, enter your Rubygems.org password.
+You will need to have pulled-down the proper gem credentials first. When prompted, enter your
+[RubyGems](http://rubygems.org) password.
 
 ```bash
 curl -u qrush https://rubygems.org/api/v1/api_key.yaml > \
@@ -161,6 +150,18 @@ make tag
 ```
 
 You can view your changes in the `SIGNED.md` file.
+
+
+## Contributing
+Here's the process for contributing:
+
+1. Fork Signer to your GitHub account.
+2. Clone your GitHub copy of the repository into your local workspace.
+3. Write code, fix bugs, and add tests with 100% code coverage.
+4. Commit your changes to your local workspace and push them up to your GitHub copy.
+5. You submit a GitHub pull request with a description of what the change is.
+6. The contribution is reviewed. Maybe there will be some banter back-and-forth in the comments.
+7. If all goes well, your pull request will be accepted and your changes are merged in.
 
 
 ## Authors, Copyright & Licensing
