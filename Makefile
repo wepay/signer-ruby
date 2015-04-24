@@ -58,3 +58,10 @@ version:
 	@echo "Current version: $$(cat ./VERSION)"
 	@read -p "Enter new version number: " nv; \
 	printf "$$nv" > ./VERSION
+
+#-------------------------------------------------------------------------------
+
+.PHONY: clean
+clean:
+	rm *.gem
+	rm *.gemspec
