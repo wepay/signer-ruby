@@ -103,7 +103,24 @@ Here's the process for contributing:
 ## Deploying
 The `Makefile` (yes, `Makefile`) has a series of commands to simplify the development and deployment process.
 
-### `pushdocs`
+### `make`
+
+Running `make` by itself will show you a list of available sub-commands.
+
+```bash
+$ make
+all
+docs
+gem
+install
+pushdocs
+pushgem
+tag
+test
+version
+```
+
+### `make pushdocs`
 You will need to have write-access to the `wepay/signer-ruby` repository on GitHub. You should have already set up:
 
 * Your SSH key with your GitHub account.
@@ -117,7 +134,7 @@ make pushdocs
 
 You can view your changes at <https://wepay.github.io/signer-ruby/>.
 
-### `pushgem`
+### `make pushgem`
 You will need to have pulled-down the proper gem credentials first. When prompted, enter your Rubygems.org password.
 
 ```bash
@@ -132,6 +149,18 @@ make pushgem
 ```
 
 You can view your changes at <https://rubygems.org/gems/wepay-signer>.
+
+### `make tag`
+You will need to have a [Keybase](https://keybase.io) account first, including setting-up the
+[`keybase` CLI tool](https://keybase.io/docs/command_line/prerequisites).
+
+Then you can run:
+
+```bash
+make tag
+```
+
+You can view your changes in the `SIGNED.md` file.
 
 
 ## Authors, Copyright & Licensing

@@ -1,5 +1,5 @@
 all:
-	@cat Makefile | grep : | grep -v PHONY | grep -v 'git@github.com' | sed 's/:/ /' | awk '{print $$1}'
+	@cat Makefile | grep : | grep -v PHONY | grep -v @ | sed 's/:/ /' | awk '{print $$1}' | sort
 
 #-------------------------------------------------------------------------------
 
@@ -39,10 +39,17 @@ pushgem: gem
 
 .PHONY: tag
 tag:
+	@ if [ $$(git status -s -uall | wc -l) != 0 ]; then echo 'ERROR: Git workspace must be clean.'; exit 1; fi;
+
 	@echo "This release will be tagged as: $$(cat ./VERSION)"
 	@echo "This version should match your gem. If it doesn't, re-run 'make gem'."
 	@echo "---------------------------------------------------------------------"
 	@read -p "Press any key to continue, or press Control+C to cancel. " x;
+
+	keybase dir sign
+	git add .
+	git commit -a -m "Cryptographically signed the $$(cat ./VERSION) release."
+	git tag $$(cat ./VERSION)
 
 #-------------------------------------------------------------------------------
 
