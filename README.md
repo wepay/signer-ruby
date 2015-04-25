@@ -21,6 +21,8 @@ Based on a simplified version of the AWS Signature v4.
 
 This project uses [Semantic Versioning](http://semver.org) for managing backwards-compatibility.
 
+> **NOTE:** To use this gem alongside the `wepay` gem, the `wepay` gem MUST be at least version `0.2.0`.
+
 * [API Reference](https://wepay.github.io/signer-ruby/)
 
 ## Examples
@@ -126,15 +128,18 @@ You can view your changes at <https://wepay.github.io/signer-ruby/>.
 You will need to have pulled-down the proper gem credentials first. When prompted, enter your
 [RubyGems](http://rubygems.org) password.
 
-```bash
-curl -u qrush https://rubygems.org/api/v1/api_key.yaml > \
-~/.gem/credentials; chmod 0600 ~/.gem/credentials
-```
+Login and view your [RubyGems profile page](https://rubygems.org/profile/edit) to see the proper command.
 
 Then you can run:
 
 ```bash
 make pushgem
+```
+
+If you need to [add an additional gem owner](https://stackoverflow.com/questions/8487218/how-to-add-more-owners-to-a-gem-in-rubygem):
+
+```bash
+gem owner wepay -a api@wepay.com
 ```
 
 You can view your changes at <https://rubygems.org/gems/wepay-signer>.

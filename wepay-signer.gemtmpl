@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'wepay-signer'
   s.version     = '@@version@@'
-  s.date        = '2015-04-23'
+  s.date        = '@@date@@'
   s.summary     = "WePay Signer for Ruby"
   s.description = "A Modern Ruby SDK for signing WePay requests."
   s.authors     = ["WePay"]

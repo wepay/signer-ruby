@@ -82,6 +82,8 @@
 
 <p>This project uses <a href="http://semver.org">Semantic Versioning</a> for managing backwards-compatibility.</p>
 
+<blockquote><p><strong>NOTE:</strong> To use this gem alongside the <code>wepay</code> gem, the <code>wepay</code> gem MUST be at least version <code>0.2.0</code>.</p></blockquote>
+
 <ul>
 <li><a href="https://wepay.github.io/signer-ruby/">API Reference</a></li>
 </ul>
@@ -186,13 +188,16 @@ version
 <p>You will need to have pulled-down the proper gem credentials first. When prompted, enter your
 <a href="http://rubygems.org">RubyGems</a> password.</p>
 
-<pre class="code bash"><code class="bash">curl -u qrush https://rubygems.org/api/v1/api_key.yaml &gt; \
-~/.gem/credentials; chmod 0600 ~/.gem/credentials
-</code></pre>
+<p>Login and view your <a href="https://rubygems.org/profile/edit">RubyGems profile page</a> to see the proper command.</p>
 
 <p>Then you can run:</p>
 
 <pre class="code bash"><code class="bash">make pushgem
+</code></pre>
+
+<p>If you need to <a href="https://stackoverflow.com/questions/8487218/how-to-add-more-owners-to-a-gem-in-rubygem">add an additional gem owner</a>:</p>
+
+<pre class="code bash"><code class="bash">gem owner wepay -a api@wepay.com
 </code></pre>
 
 <p>You can view your changes at <a href="https://rubygems.org/gems/wepay-signer">https://rubygems.org/gems/wepay-signer</a>.</p>
@@ -237,7 +242,7 @@ version
 </div></div>
 
       <div id="footer">
-  Generated on Thu Apr 23 22:58:43 2015 by
+  Generated on Sat Apr 25 00:35:04 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>
