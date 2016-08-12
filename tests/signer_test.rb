@@ -1,5 +1,5 @@
 ##
-# Copyright (c) 2015 WePay
+# Copyright (c) 2015-2016 WePay
 #
 # http://opensource.org/licenses/Apache2.0
 ##

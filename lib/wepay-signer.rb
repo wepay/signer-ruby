@@ -1,5 +1,5 @@
 ##
-# Copyright (c) 2015 WePay.
+# Copyright (c) 2015-2016 WePay.
 #
 # Based on a stripped-down version of the AWS Signature v4 implementation.
 #

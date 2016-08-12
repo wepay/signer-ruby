@@ -171,7 +171,7 @@ Here's the process for contributing:
 
 ## Authors, Copyright & Licensing
 
-* Copyright (c) 2015 [WePay](http://wepay.com)
+* Copyright (c) 2015-2016 [WePay](http://wepay.com)
 
 See also the list of [contributors](https://github.com/wepay/signer-ruby/graphs/contributors) who participated in this project.
 
