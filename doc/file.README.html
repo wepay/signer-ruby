@@ -148,7 +148,15 @@ updated documentation by running the following command in the root of the reposi
 
 <h2>Deploying</h2>
 
-<p>The <code>Makefile</code> (yes, <code>Makefile</code>) has a series of commands to simplify the development and deployment process.</p>
+<ol>
+<li>The <code>Makefile</code> (yes, <code>Makefile</code>) has a series of commands to simplify the development and deployment process.</li>
+<li>Also install <a href="https://github.com/mtdowling/chag">Chag</a>. This is used for managing the CHANGELOG and annotating the Git release correctly.</li>
+</ol>
+
+
+<h3>Updating the CHANGELOG</h3>
+
+<p>Make sure that the CHANGELOG.md is human-friendly. See <a href="http://keepachangelog.com">http://keepachangelog.com</a> if you don’t know how.</p>
 
 <h3><code>make</code></h3>
 
@@ -204,15 +212,23 @@ version
 
 <h3><code>make tag</code></h3>
 
-<p>You will need to have a <a href="https://keybase.io">Keybase</a> account first, including setting-up the
-<a href="https://keybase.io/docs/command_line/prerequisites"><code>keybase</code> CLI tool</a>.</p>
-
-<p>Then you can run:</p>
+<p>This will leverage Chag to generate a commit for the tag. Then you can run:</p>
 
 <pre class="code bash"><code class="bash">make tag
 </code></pre>
 
-<p>You can view your changes in the <code>SIGNED.md</code> file.</p>
+<h3>Drafting a GitHub release</h3>
+
+<ol>
+<li>Go to <a href="https://github.com/wepay/signer-ruby/tags">https://github.com/wepay/signer-ruby/tags</a></li>
+<li>Find the new tag that you just pushed. Click the ellipsis (<code>…</code>) to see the commit notes. Copy these.</li>
+<li>To the right, choose <em>Add release notes</em>. Your <em>Tag version</em> should be pre-filled.</li>
+<li>The <em>Release title</em> should match your <em>Tag version</em>.</li>
+<li>Inside <em>Describe this release</em>, paste the notes that you copied on the previous page.</li>
+<li>Choose <em>Publish release</em>.</li>
+<li>Your release should now be the latest. <a href="https://github.com/wepay/signer-ruby/releases/latest">https://github.com/wepay/signer-ruby/releases/latest</a></li>
+</ol>
+
 
 <h2>Contributing</h2>
 
@@ -232,7 +248,7 @@ version
 <h2>Authors, Copyright &amp; Licensing</h2>
 
 <ul>
-<li>Copyright (c) 2015 <a href="http://wepay.com">WePay</a></li>
+<li>Copyright (c) 2015-2016 <a href="http://wepay.com">WePay</a></li>
 </ul>
 
 
@@ -242,9 +258,9 @@ version
 </div></div>
 
       <div id="footer">
-  Generated on Sat Apr 25 00:35:04 2015 by
+  Generated on Fri Aug 12 10:29:20 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
     </div>

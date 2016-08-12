@@ -680,6 +680,8 @@ the signing party.</p>
   <div class="discussion">
     <p>Signs and generates the query string URL parameters to use when making a request.</p>
 
+<p>If the <code>client_secret</code> key is provided, then it will be automatically excluded from the result.</p>
+
 
   </div>
 </div>
@@ -773,8 +775,6 @@ the signing party.</p>
       <pre class="lines">
 
 
-93
-94
 95
 96
 97
@@ -784,12 +784,18 @@ the signing party.</p>
 101
 102
 103
-104</pre>
+104
+105
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/wepay-signer.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/wepay-signer.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generate_query_string_params'>generate_query_string_params</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_payload'>payload</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:client_secret</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_payload'>payload</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span> <span class='symbol'>:client_secret</span>
+
   <span class='id identifier rubyid_signed_token'>signed_token</span> <span class='op'>=</span> <span class='id identifier rubyid_sign'>sign</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_payload'>payload</span><span class='lbracket'>[</span><span class='symbol'>:client_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@client_id</span>
   <span class='id identifier rubyid_payload'>payload</span><span class='lbracket'>[</span><span class='symbol'>:stoken</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_signed_token'>signed_token</span>
@@ -950,9 +956,9 @@ the signing party.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 25 00:35:04 2015 by
+  Generated on Fri Aug 12 10:29:20 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
     </div>
