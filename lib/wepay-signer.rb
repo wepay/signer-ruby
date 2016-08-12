@@ -84,6 +84,8 @@ module WePay
     ##
     # Signs and generates the query string URL parameters to use when making a request.
     #
+    # If the `client_secret` key is provided, then it will be automatically excluded from the result.
+    #
     # @param  payload [Hash] The data to generate a signature for.
     # @option payload [required, String] token The one-time-use token.
     # @option payload [required, String] page The WePay URL to access.
@@ -91,6 +93,8 @@ module WePay
     # @return [String] The query string parameters to append to the end of a URL.
     ##
     def generate_query_string_params(payload)
+      payload.delete(:client_secret) if payload.has_key? :client_secret
+
       signed_token = sign(payload)
       payload[:client_id] = @client_id
       payload[:stoken] = signed_token

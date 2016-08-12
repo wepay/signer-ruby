@@ -64,4 +64,16 @@ class SignerTest < RubyUnit::TestCase
     assertEqual sprintf(DEFAULT_QS, DEFAULT_CLIENT_ID, DEFAULT_PAGE, DEFAULT_REDIRECT_URI, DEFAULT_SIGNATURE, DEFAULT_TOKEN), querystring
   end
 
+  def generate_query_string_params_client_secret_Test
+    querystring = @signer.generate_query_string_params({
+      :page          => DEFAULT_PAGE,
+      :redirect_uri  => DEFAULT_REDIRECT_URI,
+      :token         => DEFAULT_TOKEN,
+      :client_id     => DEFAULT_CLIENT_ID,
+      :client_secret => DEFAULT_CLIENT_SECRET,
+    })
+
+    assertEqual sprintf(DEFAULT_QS, DEFAULT_CLIENT_ID, DEFAULT_PAGE, DEFAULT_REDIRECT_URI, DEFAULT_SIGNATURE, DEFAULT_TOKEN), querystring
+  end
+
 end
