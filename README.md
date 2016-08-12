@@ -91,7 +91,13 @@ make docs
 
 
 ## Deploying
-The `Makefile` (yes, `Makefile`) has a series of commands to simplify the development and deployment process.
+
+1. The `Makefile` (yes, `Makefile`) has a series of commands to simplify the development and deployment process.
+1. Also install [Chag](https://github.com/mtdowling/chag). This is used for managing the CHANGELOG and annotating the Git release correctly.
+
+### Updating the CHANGELOG
+
+Make sure that the CHANGELOG.md is human-friendly. See http://keepachangelog.com if you don’t know how.
 
 ### `make`
 
@@ -145,16 +151,22 @@ gem owner wepay -a api@wepay.com
 You can view your changes at <https://rubygems.org/gems/wepay-signer>.
 
 ### `make tag`
-You will need to have a [Keybase](https://keybase.io) account first, including setting-up the
-[`keybase` CLI tool](https://keybase.io/docs/command_line/prerequisites).
 
-Then you can run:
+This will leverage Chag to generate a commit for the tag. Then you can run:
 
 ```bash
 make tag
 ```
 
-You can view your changes in the `SIGNED.md` file.
+### Drafting a GitHub release
+
+1. Go to https://github.com/wepay/signer-ruby/tags
+1. Find the new tag that you just pushed. Click the ellipsis (`…`) to see the commit notes. Copy these.
+1. To the right, choose _Add release notes_. Your _Tag version_ should be pre-filled.
+1. The _Release title_ should match your _Tag version_.
+1. Inside _Describe this release_, paste the notes that you copied on the previous page.
+1. Choose _Publish release_.
+1. Your release should now be the latest. https://github.com/wepay/signer-ruby/releases/latest
 
 
 ## Contributing
