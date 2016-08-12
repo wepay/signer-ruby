@@ -47,9 +47,8 @@ tag:
 	@echo "---------------------------------------------------------------------"
 	@read -p "Press any key to continue, or press Control+C to cancel. " x;
 
-	keybase dir sign
 	git add .
-	git commit -a -m "Cryptographically signed the $$(cat ./VERSION) release."
+	git commit -a -m "Preparing the $$(cat ./VERSION) release."
 	git tag $$(cat ./VERSION)
 
 #-------------------------------------------------------------------------------
