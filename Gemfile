@@ -4,7 +4,7 @@ gem 'rake'
 
 group :test do
   gem 'rubyunit'
-  gem "codeclimate-test-reporter", require: false
+  gem "codeclimate-test-reporter", group: :test, require: nil
   gem 'coveralls', require: false
   gem 'scrutinizer-ocular', require: false
 end
